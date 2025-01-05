@@ -1,32 +1,39 @@
-const Product = require('../models/productModel');
+const mysql = require('mysql2');
+const db = require('../config/database');  // Mengimpor koneksi ke database
 
 // Halaman Utama User
 exports.home = (req, res) => {
     const user = req.user || null;
-  res.render('user/home');
+    res.render('user/home');
 };
 
 // Halaman Menu Pria
 exports.menuPria = (req, res) => {
-  Product.getAll('pria', (err, products) => {
-    if (err) return res.send('Error: ' + err);
-    res.render('user/menuPria', { products });
+  db.query('SELECT * FROM products WHERE category = ?', ['pria'], (err, results) => {
+    if (err) {
+      return res.send('Error: ' + err);
+    }
+    res.render('user/menuPria', { products: results });
   });
 };
 
 // Halaman Menu Wanita
 exports.menuWanita = (req, res) => {
-  Product.getAll('wanita', (err, products) => {
-    if (err) return res.send('Error: ' + err);
-    res.render('user/menuWanita', { products });
+  db.query('SELECT * FROM products WHERE category = ?', ['wanita'], (err, results) => {
+    if (err) {
+      return res.send('Error: ' + err);
+    }
+    res.render('user/menuWanita', { products: results });
   });
 };
 
 // Halaman Menu Sale
 exports.menuSale = (req, res) => {
-  Product.getAll('sale', (err, products) => {
-    if (err) return res.send('Error: ' + err);
-    res.render('user/menuSale', { products });
+  db.query('SELECT * FROM products WHERE category = ?', ['sale'], (err, results) => {
+    if (err) {
+      return res.send('Error: ' + err);
+    }
+    res.render('user/menuSale', { products: results });
   });
 };
 

@@ -1,6 +1,7 @@
+require('dotenv').config(); // Memuat variabel lingkungan dari file .env
 const mysql = require('mysql2');
 
-// Mengambil variabel lingkungan dari file .env
+// Membuat koneksi ke database dengan variabel lingkungan dari file .env
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -8,12 +9,14 @@ const db = mysql.createConnection({
   database: process.env.DB_NAME,
 });
 
+// Menghubungkan ke database
 db.connect((err) => {
   if (err) {
-    console.error('Error connecting to the database:', err);
+    console.error('Error connecting to the database:', err.stack);
     return;
   }
   console.log('Connected to the MySQL database.');
 });
 
+// Ekspor koneksi database agar bisa digunakan di file lain
 module.exports = db;

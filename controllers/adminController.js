@@ -1,8 +1,9 @@
 const bcrypt = require('bcrypt');
 const db = require('../config/database'); // Sambungkan ke file koneksi database Anda
+const Product = require('../models/productModel'); // Pastikan Anda memiliki model untuk Product
 
 // Login Admin
-exports.loginController = async (req, res) => {
+exports.loginController = (req, res) => {
   const { username, password } = req.body;
 
   // Validasi jika username atau password kosong
@@ -10,9 +11,12 @@ exports.loginController = async (req, res) => {
     return res.render('admin/login', { error: 'Username and password are required' });
   }
 
-  try {
-    // Query untuk mencari admin berdasarkan username
-    const [rows] = await db.query('SELECT * FROM admins WHERE username = ?', [username]);
+  // Query untuk mencari admin berdasarkan username
+  db.query('SELECT * FROM admins WHERE username = ?', [username], (err, rows) => {
+    if (err) {
+      console.error('Error saat login:', err);
+      return res.render('admin/login', { error: 'An error occurred, please try again later.' });
+    }
 
     if (rows.length === 0) {
       // Jika username tidak ditemukan
@@ -22,21 +26,23 @@ exports.loginController = async (req, res) => {
     const admin = rows[0];
 
     // Verifikasi password menggunakan bcrypt
-    const isMatch = await bcrypt.compare(password, admin.password);
+    bcrypt.compare(password, admin.password, (err, isMatch) => {
+      if (err) {
+        console.error('Error saat verifikasi password:', err);
+        return res.render('admin/login', { error: 'An error occurred, please try again later.' });
+      }
 
-    if (!isMatch) {
-      // Jika password salah
-      return res.render('admin/login', { error: 'Invalid username or password' });
-    }
+      if (!isMatch) {
+        // Jika password salah
+        return res.render('admin/login', { error: 'Invalid username or password' });
+      }
 
-    // Jika login berhasil, simpan session admin dan redirect ke dashboard
-    req.session.isAdmin = true;
-    req.session.adminId = admin.id; // Simpan ID admin ke session jika diperlukan
-    return res.redirect('/admin/dashboard');
-  } catch (error) {
-    console.error('Error saat login:', error);
-    return res.render('admin/login', { error: 'An error occurred, please try again later.' });
-  }
+      // Jika login berhasil, simpan session admin dan redirect ke dashboard
+      req.session.isAdmin = true;
+      req.session.adminId = admin.id; // Simpan ID admin ke session jika diperlukan
+      return res.redirect('/admin/dashboard');
+    });
+  });
 };
 
 // Logout Admin
@@ -91,7 +97,7 @@ exports.updateMenuPria = (req, res) => {
 // Menghapus Produk Pria (Delete)
 exports.deleteMenuPria = (req, res) => {
   const { id } = req.params;
-  
+
   Product.delete(id, (err, result) => {
     if (err) return res.send('Error: ' + err);
     res.redirect('/admin/menu-pria'); // Setelah hapus produk, redirect ke halaman menuPria
