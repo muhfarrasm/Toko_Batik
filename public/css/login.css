@@ -1,70 +1,99 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #575ea8;
+    font-family: 'Arial', sans-serif;
+    background-color: #EAE6F3;
 }
 
-.login-container {
+.container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
-.login-box {
+.left-section {
+    flex: 1;
     background-color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 300px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.logo {
-    width: 80px;
-    margin-bottom: 1rem;
+.left-section h1 {
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 10px;
 }
 
-.title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+.left-section p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
 }
 
-.subtitle {
-    color: #777;
-    margin-bottom: 1rem;
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-.form-input {
-    width: 100%;
-    padding: 0.5rem;
-    margin: 0.5rem 0;
-    border: 1px solid #ddd;
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
     border-radius: 4px;
+    width: 100%;
 }
 
-.btn {
-    background-color: #007BFF;
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.options a {
+    color: #D08090;
+    text-decoration: none;
+}
+
+.options input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button {
+    background-color: #D1B5A0;
     color: #fff;
-    padding: 0.5rem 1rem;
     border: none;
-    border-radius: 4px;
+    padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    width: 100%;
+    font-size: 16px;
+    margin-top: 20px;
 }
 
-.btn:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: #b89784;
 }
 
+.right-section {
+    flex: 1;
+    background: linear-gradient(to bottom, #c8aa96, #e6d5ce);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.no-navbar nav {
-    display: none;
+.circle {
+    width: 120px;
+    height: 60px;
+    background-color: #6e4343;
+    border-radius: 0 0 120px 120px;
 }

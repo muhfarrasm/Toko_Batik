@@ -1,0 +1,212 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Newsreader', regular;
+    color: #605252;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #605252;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.brand h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.brand span {
+    color: #B89B8B;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 30px;
+    position: relative;
+    right: 300px;
+    font-size: 18px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar nav ul li a:hover {
+    color: #e74c3c;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-slider {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    overflow: hidden;
+    border: 5px solid #ddd;
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    animation: slider 15s infinite;
+    position: absolute;
+    
+}
+
+.slider-image.active {
+    opacity: 1;
+}
+
+@keyframes slider {
+    0%, 33% {
+        transform: translateX(0);
+    }
+    34%, 66% {
+        transform: translateX(-100%);
+    }
+    67%, 100% {
+        transform: translateX(-200%);
+    }
+}
+
+.image-overlay {
+    position: relative;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Footer */
+
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-content h2 {
+    color: #fff;
+}
+.footer-content span {
+    color: #B89B8B;
+}
+
+.footer-content h3{
+    color: #fff;
+}
+
+.footer-content p {
+    margin: 10px 0;
+}
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-content ul li {
+    margin: 5px 0;
+}
+
+.footer-content ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-content ul li a:hover {
+    color: #e74c3c;
+}
+.footer-social h3{
+    margin-right: 60px;
+}
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Mengatur item menjadi sejajar horizontal */
+    justify-content: center; /* Menyeimbangkan posisi secara horizontal */
+    align-items: center; /* Menyeimbangkan posisi secara vertikal */
+    gap: 20px; /* Jarak antar ikon */
+    margin-left: 30px;
+    position: relative;
+    right: 50px;
+}
+
+.footer-social ul li {
+    display: inline-block; /* Setiap elemen tetap inline */
+}
+
+.footer-social ul li a {
+    text-decoration: none;
+    color: #fff; /* Warna ikon, sesuaikan dengan tema Anda */
+    font-size: 30px; /* Memperbesar ikon */
+    transition: transform 0.3s, color 0.3s; /* Animasi efek hover */
+}
+
+.footer-social ul li a:hover {
+    transform: scale(1.2); /* Ikon membesar saat hover */
+    color: #423e3e; /* Warna berubah saat hover */
+}
+
+html, body {
+    height: 100%; /* Full height */
+    margin: 0; /* Menghilangkan margin default */
+}
+
+/* Gunakan flexbox pada body agar footer tetap di bawah */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mengatur konten utama (main) agar bisa mengisi ruang yang tersisa */
+main {
+    flex: 1; /* Membuat elemen main fleksibel dan mengisi ruang yang tersedia */
+}
+
+/* Footer tetap di bawah */
+footer {
+    padding: 20px;
+    background-color: #605252;
+    color: white;
+    text-align: center;
+}

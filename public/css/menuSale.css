@@ -1,0 +1,193 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Newsreader', regular;
+    color: #605252;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #605252;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.brand h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.brand span {
+    color: #B89B8B;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 30px;
+    position: relative;
+    right: 300px;
+    font-size: 18px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar nav ul li a:hover {
+    color: #e74c3c;
+}
+
+/* Footer */
+
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-content h2 {
+    color: #fff;
+}
+.footer-content span {
+    color: #B89B8B;
+}
+
+.footer-content h3{
+    color: #fff;
+}
+
+.footer-content p {
+    margin: 10px 0;
+}
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-content ul li {
+    margin: 5px 0;
+}
+
+.footer-content ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-content ul li a:hover {
+    color: #e74c3c;
+}
+
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Mengatur item menjadi sejajar horizontal */
+    justify-content: center; /* Menyeimbangkan posisi secara horizontal */
+    align-items: center; /* Menyeimbangkan posisi secara vertikal */
+    gap: 20px; /* Jarak antar ikon */
+    margin-left: 30px;
+    position: relative;
+    right: 50px;
+}
+
+.footer-social ul li {
+    display: inline-block; /* Setiap elemen tetap inline */
+}
+
+.footer-social ul li a {
+    text-decoration: none;
+    color: #fff; /* Warna ikon, sesuaikan dengan tema Anda */
+    font-size: 30px; /* Memperbesar ikon */
+    transition: transform 0.3s, color 0.3s; /* Animasi efek hover */
+}
+
+.footer-social ul li a:hover {
+    transform: scale(1.2); /* Ikon membesar saat hover */
+    color: #423e3e; /* Warna berubah saat hover */
+}
+
+html, body {
+    height: 100%; /* Full height */
+    margin: 0; /* Menghilangkan margin default */
+}
+
+/* Gunakan flexbox pada body agar footer tetap di bawah */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mengatur konten utama (main) agar bisa mengisi ruang yang tersisa */
+main {
+    flex: 1; /* Membuat elemen main fleksibel dan mengisi ruang yang tersedia */
+}
+
+/* Footer tetap di bawah */
+footer {
+    padding: 20px;
+    background-color: #605252;
+    color: white;
+    text-align: center;
+}
+
+/* Main section (untuk mengatur konten utama) */
+main {
+    flex: 1; /* Membuat elemen main fleksibel dan mengisi ruang yang tersedia */
+    padding: 20px; /* Memberikan padding pada konten utama */
+}
+
+/* Gaya untuk produk (contoh) */
+.product-card {
+    display: inline-block;
+    margin: 20px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 250px;
+    text-align: center; /* Menengahkan konten dalam kartu produk */
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-card h3 {
+    margin-top: 10px;
+}
+
+/* Gaya untuk tombol (contoh) */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #605252;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #e74c3c;
+}

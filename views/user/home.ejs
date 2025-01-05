@@ -3,36 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Batik Shop</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>BATIK IFAWATI</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
-
-    <!-- Header Section -->
+    <!-- Header -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/menu-pria">Menu Pria</a></li>
-                <li><a href="/menu-wanita">Menu Wanita</a></li>
-                <li><a href="/menu-sale">Menu Sale</a></li>
-                <li><a href="/about-us">About Us</a></li>
-                <li><a href="/admin/login">LOGIN</a></li>
-        </nav>
+        <div class="navbar">
+            <div class="brand">
+                <h1>BATIK <span>IFAWATI</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/menu-sale">SALE</a></li>
+                    <li><a href="/menu-pria">PRIA</a></li>
+                    <li><a href="/menu-wanita">WANITA</a></li>
+                    <li><a href="/about-us">ABOUT US</a></li>
+                    <li><a href="/admin/login">LOGIN</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <!-- Main Content Section -->
-    <main>
-        <h1>Welcome to Batik Shop</h1>
-        <p>Discover our exclusive collection of Batik products for men, women, and on sale!</p>
 
-      
-        
+    <!-- Main Section -->
+    <main>
+        <div class="hero-section">
+            <div class="image-slider">
+                <img src="/images/batik solo.jpeg" alt="Batik Male" class="slider-image" style="width: 90%; height: auto;">
+                <img src="/images/cewek.png" alt="Batik Female" class="slider-image"style="width: 90%; height: auto;">
+                <img src="/images/jogja.jpeg" alt="Batik Male 2" class="slider-image" style="width: 90%; height: auto;">
+            </div>
+        </div>
     </main>
-    <!-- Footer Section -->
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Batik Shop. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>BATIK <span>IFAWATI</span></h2>
+                <p>&copy; 2024 Adit. All rights reserved.<br>Design by Aditya</p>
+            </div>
+            <div class="footer-about">
+                <h3>ABOUT US</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Corrupti dolorem, sint corporis nostrum.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>CONTACT INFO</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Yogyakarta, 108</p>
+                <p><i class="fas fa-phone-alt"></i> +62 1234189212</p>
+                <p><i class="fas fa-envelope"></i> coffeceria@mail.com</p>
+            </div>
+            <div class="footer-social">
+                <h3>SOCIAL</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-instagram"></i> </a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
 
-    <script src="/js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll('.slider-image');
+            let currentIndex = 0;
+
+            function changeImage() {
+                images.forEach((image, index) => {
+                    image.classList.remove('active');
+                    if (index === currentIndex) {
+                        image.classList.add('active');
+                    }
+                });
+
+                currentIndex = (currentIndex + 1) % images.length;
+            }
+
+            setInterval(changeImage, 3000); // Ganti gambar setiap 3 detik
+        });
+    </script>
+
+    
 </body>
 </html>
+
+
