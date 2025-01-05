@@ -1,0 +1,40 @@
+<!-- views/admin/menuSale.ejs -->
+<%- include('shared/header') %>
+
+<h2>Daftar Produk Sale</h2>
+
+<!-- Formulir untuk Menambah Produk Sale -->
+<form action="/admin/menu-sale/create" method="POST" enctype="multipart/form-data">
+  <input type="text" name="name" placeholder="Nama Produk" required>
+  <input type="number" name="price" placeholder="Harga Produk" required>
+  <textarea name="description" placeholder="Deskripsi Produk" required></textarea>
+  <input type="file" name="image" required>
+  <button type="submit">Tambah Produk Sale</button>
+</form>
+
+<!-- Daftar Produk Sale -->
+<ul>
+  <% products.forEach(product => { %>
+    <li>
+      <h3><%= product.name %></h3>
+      <p>Harga: <%= product.price %></p>
+      <p><%= product.description %></p>
+      <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+
+      <!-- Formulir Update Produk -->
+      <form action="/admin/menu-sale/update" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<%= product.id %>">
+        <input type="text" name="name" value="<%= product.name %>" required>
+        <input type="number" name="price" value="<%= product.price %>" required>
+        <textarea name="description" required><%= product.description %></textarea>
+        <input type="file" name="image">
+        <button type="submit">Update Produk</button>
+      </form>
+
+      <!-- Tombol Hapus Produk -->
+      <a href="/admin/menu-sale/delete/<%= product.id %>">Hapus Produk</a>
+    </li>
+  <% }) %>
+</ul>
+
+<%- include('shared/footer') %>

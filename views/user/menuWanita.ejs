@@ -1,0 +1,29 @@
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/menu-pria">Menu Pria</a></li>
+            <li><a href="/menu-wanita">Menu Wanita</a></li>
+            <li><a href="/menu-sale">Menu Sale</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <!-- If user is admin, show admin link -->
+            
+        </ul>
+    </nav>
+</header>
+<h2>Daftar Produk Wanita</h2>
+
+<ul>
+  <% products.forEach(product => { %>
+    <li>
+      <h3><%= product.name %></h3>
+      <p>Harga: <%= product.price %></p>
+      <p><%= product.description %></p>
+      <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+    </li>
+  <% }) %>
+</ul>
+<footer>
+    <p>&copy; 2025 Batik Shop. All rights reserved.</p>
+</footer>
+

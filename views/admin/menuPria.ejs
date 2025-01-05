@@ -1,0 +1,42 @@
+<!-- views/admin/menuPria.ejs -->
+<%- include('shared/header') %>
+
+<h2>Daftar Produk Pria</h2>
+
+<!-- Formulir untuk Menambah Produk -->
+<form action="/admin/menu-pria/create" method="POST" enctype="multipart/form-data">
+  <input type="text" name="name" placeholder="Nama Produk" required>
+  <input type="number" name="price" placeholder="Harga Produk" required>
+  <textarea name="description" placeholder="Deskripsi Produk" required></textarea>
+  <input type="file" name="image" required>
+  <button type="submit">Tambah Produk</button>
+</form>
+
+<!-- Daftar Produk Pria -->
+<ul>
+  <% products.forEach(product => { %>
+    <li>
+      <h3><%= product.name %></h3>
+      <p>Harga: <%= product.price %></p>
+      <p><%= product.description %></p>
+      <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+
+      <!-- Formulir Update Produk -->
+      <form action="/admin/menu-pria/update" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<%= product.id %>">
+        <input type="text" name="name" value="<%= product.name %>" required>
+        <input type="number" name="price" value="<%= product.price %>" required>
+        <textarea name="description" required><%= product.description %></textarea>
+        <input type="file" name="image">
+        <button type="submit">Update Produk</button>
+      </form>
+
+      <!-- Tombol Hapus Produk -->
+      <a href="/admin/menu-pria/delete/<%= product.id %>">Hapus Produk</a>
+    </li>
+  <% }) %>
+</ul>
+<footer>
+    <p>&copy; 2025 Batik Shop. All rights reserved.</p>
+</footer>
+
