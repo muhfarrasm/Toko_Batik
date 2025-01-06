@@ -61,6 +61,20 @@ app.get('/about-us', (req, res) => {
 app.get('/admin/login', (req, res) => {
   res.render('admin/login', { title: 'Login' });
 });
+// Rute untuk menangani login POST
+app.post('/admin/login', (req, res) => {
+  const { username, password } = req.body; // Ambil data dari form login
+
+  // Cek kredensial admin (misalnya, menggunakan data dummy atau dari database)
+  if (username === 'farras' && password === 'farras12345') {
+    // Jika login berhasil, buat session
+    req.session.isAdmin = true;
+    res.redirect('/admin/dashboard'); // Arahkan ke dashboard admin
+  } else {
+    // Jika login gagal, tampilkan pesan error
+    res.render('admin/login', { title: 'Login', error: 'Username atau password salah' });
+  }
+});
 
 // Rute Admin Dashboard
 app.get('/admin/dashboard', (req, res) => {

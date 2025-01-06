@@ -1,43 +1,81 @@
-<!-- views/user/menuPria.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Pria</title>
-    <!-- Tambahkan link ke file CSS di sini -->
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>BATIK IFAWATI</title>
+    <link rel="stylesheet" href="/css/menuSale.css">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- Header -->
     <header>
-        <nav>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/menu-pria">Menu Pria</a></li>
-              <li><a href="/menu-wanita">Menu Wanita</a></li>
-              <li><a href="/menu-sale">Menu Sale</a></li>
-              <li><a href="/about-us">About Us</a></li>
-              <li><a href="/admin/login">LOGIN</a></li>
-                <!-- If user is admin, show admin link -->
-            </ul>
-        </nav>
+        <div class="navbar">
+            <div class="brand">
+                <h1>BATIK <span>IFAWATI</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/menu-sale">SALE</a></li>
+                    <li><a href="/menu-pria">PRIA</a></li>
+                    <li><a href="/menu-wanita">WANITA</a></li>
+                    <li><a href="/about-us">ABOUT US</a></li>
+                    <li><a href="/admin/login">LOGIN</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <h2>Daftar Produk Pria</h2>
+    <main>
+      <section class="sale-items">
+          <h2>Menu Pria</h2>
+          <div class="product-card">
+              <img src="path/to/image1.jpg" alt="Product 1">
+              <div class="product-info">
+                  <h3>Product Name 1</h3>
+                  <p>Price: Rp. XX.XXX</p>
+              </div>
+          </div>
+          <div class="product-card">
+              <img src="path/to/image2.jpg" alt="Product 2">
+              <div class="product-info">
+                  <h3>Product Name 2</h3>
+                  <p>Price: Rp. XX.XXX</p>
+              </div>
+          </div>
+      </section>
+    </main>
 
-    <ul>
-      <% products.forEach(product => { %>
-        <li>
-          <h3><%= product.name %></h3>
-          <p>Harga: <%= product.price %></p>
-          <p><%= product.description %></p>
-          <img src="/images/<%= product.image %>" alt="<%= product.name %>">
-        </li>
-      <% }) %>
-    </ul>
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Batik Shop. All rights reserved.</p>
-    </footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>BATIK <span>IFAWATI</span></h2>
+                <p>&copy; 2024 Adit. All rights reserved.<br>Design by Aditya</p>
+            </div>
+            <div class="footer-about">
+                <h3>ABOUT US</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Corrupti dolorem, sint corporis nostrum.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>CONTACT INFO</h3>
+                <p>Yogyakarta, 108<br>+62 1234189212<br>coffeceria@mail.com</p>
+            </div>
+            <div class="footer-social">
+                <h3>SOCIAL</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-instagram"></i> </a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
+                </ul>
+            </div>
+        </div>
+      </footer>
+    
 </body>
 </html>
+
+
